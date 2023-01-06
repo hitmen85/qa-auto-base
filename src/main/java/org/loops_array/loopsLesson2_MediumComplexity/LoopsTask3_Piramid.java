@@ -1,4 +1,4 @@
-package org.var_type_oper_conditions.loopsTask2_MediumComplexity;
+package org.loops_array.loopsLesson2_MediumComplexity;
 
 import java.util.Scanner;
 
@@ -28,18 +28,16 @@ public class LoopsTask3_Piramid {
         }
 
         System.out.println("\nPrint inversed piramid:\n");
-        for (i = 0; i < m; i++)
+        for (i = 0; i < m - 1; i++)
         {
-            for (j = m - n; j < m; j++)
+            for (j = 0; j <= i; j++)
             {
-                System.out.print(ch + " ");
+                System.out.print(" ");
             }
-            System.out.println();
             for (j = 0; j <= (m - n); j++)
             {
                 System.out.print(" ");
             }
-            n--;
         }
     }
 }

@@ -1,5 +1,6 @@
-package org.var_type_oper_conditions.loopsTask2_MediumComplexity;
+package org.loops_array.loopsLesson2_MediumComplexity;
 
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -38,33 +39,22 @@ public class LoopsTask4_HighComplexity {
         for (int row = 0; row < n; row++)
         {
             for (int col = 0; col < m; col++)
-            {
-                if ((diagonal == "right" && (row + col == (n - 1))) || ((diagonal == "left") && (row == col)))
-                {
-                    if (operator == "+")
-                    {
+                if ((Objects.equals(diagonal, "right") && (row + col == (n - 1))) || ((Objects.equals(diagonal, "left")) && (row == col))) {
+                    if (Objects.equals(operator, "+")) {
                         array[row][col] += array[row][col];
                         operand = "sum";
-                    }
-                    else if (operator == "-")
-                    {
+                    } else if (Objects.equals(operator, "-")) {
                         array[row][col] -= array[row][col];
                         operand = "difference";
-                    }
-                    else if (operator == "*")
-                    {
+                    } else if (Objects.equals(operator, "*")) {
                         array[row][col] *= array[row][col];
                         operand = "multiplication";
-                    }
-                    else if (operator == "/")
-                    {
+                    } else if (Objects.equals(operator, "/")) {
                         array[row][col] /= array[row][col];
                         operand = "division";
-                    }
-                    else
+                    } else
                         throw new RuntimeException("Wrong operator format");
                 }
-            }
         }
         System.out.println("Modified array with " + operand + " of all " + diagonal + " elements is:");
         for (int row = 0; row < n; row++) {

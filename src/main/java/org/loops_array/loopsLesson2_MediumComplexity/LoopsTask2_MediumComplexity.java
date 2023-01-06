@@ -1,23 +1,34 @@
-package org.var_type_oper_conditions.loopsTask2_MediumComplexity;
+package org.loops_array.loopsLesson2_MediumComplexity;
 import java.util.*;
-
-import static java.sql.DriverManager.println;
 
 public class LoopsTask2_MediumComplexity {
     public static void main(String[] args) {
         String str = "id-12,nume-Vasile,oras-Chisinau,mobil-0223187473232,parola-njad72DSSa2";
-        String[] details = str.split("-|\\,");
-        int id;
-        String nume, oras, mobil, parola;
 
-        System.out.println("--------------Prima versiune:------------ ");
-        System.out.println("Id: " + Integer.valueOf(str.substring(3,5)));
-        System.out.println("Nume: " + str.substring(11,17));
-        System.out.println("Oras: " + str.substring(23,31));
-        System.out.println("Mobil: " + str.substring(38,51));
-        System.out.println("Parola: " + str.substring(59,70));
+        System.out.println("\n------------Prima versiune:----------- ");
+        primaVersiune(str);
 
         System.out.println("\n------------A doua versiune:----------- ");
+        aDouaVersiune(str);
+    }
+
+    public static void primaVersiune(String unparsedString){
+        HashMap<String, String> devidedString = new HashMap<>();
+        String [] splitByComma = unparsedString.split(",");
+        for (String element: splitByComma) {
+            String[] splitByDash = element.split("-");
+            int i = 0;
+            while (i < splitByDash.length) {
+                devidedString.put(splitByDash[i], splitByDash[i+1]);
+                i=+2;
+            }
+        }
+        System.out.println(devidedString);
+    }
+    public static void aDouaVersiune(String unparsedString) {
+        String[] details = unparsedString.split("[-,]");
+        int id;
+        String nume, oras, mobil, parola;
         List <String> varlist = new ArrayList<>();
         List <String> valueslist = new ArrayList<>();
         int i;
@@ -29,7 +40,7 @@ public class LoopsTask2_MediumComplexity {
                 varlist.add(details[i]);
         }
 
-        id = Integer.valueOf(valueslist.get(0));
+        id = Integer.parseInt(valueslist.get(0));
         nume = valueslist.get(1);
         oras = valueslist.get(2);
         mobil = valueslist.get(3);
