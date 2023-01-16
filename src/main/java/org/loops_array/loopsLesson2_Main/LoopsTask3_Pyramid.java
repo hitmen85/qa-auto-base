@@ -1,8 +1,8 @@
-package org.loops_array.loopsLesson2_MediumComplexity;
+package org.loops_array.loopsLesson2_Main;
 
 import java.util.Scanner;
 
-public class LoopsTask3_Piramid {
+public class LoopsTask3_Pyramid {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 

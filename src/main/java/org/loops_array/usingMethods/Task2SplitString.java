@@ -4,34 +4,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Task2MediumComplexity {
-    public static void main(String[] args) {
-        String str = "id-12,nume-Vasile,oras-Chisinau,mobil-0223187473232,parola-njad72DSSa2";
+public class Task2SplitString {
+    String str = "id-12,nume-Vasile,oras-Chisinau,mobil-0223187473232,parola-njad72DSSa2";
+    int id;
+    String nume, oras, mobil, parola;
 
-        System.out.println("\n------------Prima versiune:----------- ");
-        primaVersiune(str);
-
-        System.out.println("\n------------A doua versiune:----------- ");
-        aDouaVersiune(str);
-    }
-
-    public static void primaVersiune(String unparsedString){
+    public void primaVersiune(){
         HashMap<String, String> devidedString = new HashMap<>();
-        String [] splitByComma = unparsedString.split(",");
+        String [] splitByComma = str.split(",");
         for (String element: splitByComma) {
             String[] splitByDash = element.split("-");
             int i = 0;
             while (i < splitByDash.length) {
                 devidedString.put(splitByDash[i], splitByDash[i+1]);
-                i=+2;
+                i = +2;
             }
         }
         System.out.println(devidedString);
     }
-    public static void aDouaVersiune(String unparsedString) {
-        String[] details = unparsedString.split("[-,]");
-        int id;
-        String nume, oras, mobil, parola;
+    public void storeParsedStringIntoVariables() {
+        String[] details = str.split("[-,]");
         List <String> varlist = new ArrayList<>();
         List <String> valueslist = new ArrayList<>();
         int i;

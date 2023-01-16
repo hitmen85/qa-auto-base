@@ -1,15 +1,8 @@
-package org.loops_array.loopsLesson2_MediumComplexity;
+package org.loops_array.loopsLesson2_Main;
 import java.util.*;
 
 public class LoopsTask2_MediumComplexity {
     public static void main(String[] args) {
-        String str = "id-12,nume-Vasile,oras-Chisinau,mobil-0223187473232,parola-njad72DSSa2";
-
-        System.out.println("\n------------Prima versiune:----------- ");
-        primaVersiune(str);
-
-        System.out.println("\n------------A doua versiune:----------- ");
-        aDouaVersiune(str);
     }
 
     public static void primaVersiune(String unparsedString){

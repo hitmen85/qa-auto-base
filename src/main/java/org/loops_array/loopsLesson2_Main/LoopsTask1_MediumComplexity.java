@@ -1,4 +1,4 @@
-package org.loops_array.loopsLesson2_MediumComplexity;
+package org.loops_array.loopsLesson2_Main;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class LoopsTask1_MediumComplexity {
         setRows(scan.nextInt());
         System.out.println("Enter the number of array columns: ");
         setColumns(scan.nextInt());
-        this.array = new char[rows][columns];
+        array = new char[rows][columns];
     }
 
     public void displayArrayWithForLoop() {
