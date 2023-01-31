@@ -1,80 +1,98 @@
 package org.loops_array.helper;
 
+import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
-import java.util.Random;
 
-public abstract class Calculations implements ArrayFromConsole {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+
+public class Calculations {
     String diagonal, operator;
+    public double[] tempArray;
     public ArrayAttribute arrayAttribute = new ArrayAttribute();
+    String operand = "null";
 
 
-    public void initializeArray() {
-        System.out.println("Enter number of array rows: ");
-        arrayAttribute.setRow(scanner.nextInt());
-        System.out.println(arrayAttribute.getRow());
-        System.out.print("Enter number of array columns: ");
-        arrayAttribute.setCol(scanner.nextInt());
-        System.out.println(arrayAttribute.getCol());
-        arrayAttribute.setArray(new int[arrayAttribute.getRow()][arrayAttribute.getCol()]);
-    }
+    public double[] makeCalculation() {
+        System.out.println("Type + OR - OR * OR / to obtain respective calculations of the " + diagonal.toUpperCase() + " diagonal: ");
+        operator = Utils.scanner.next();
 
 
-    public void generateRandomIntArray() {
-        for (int i = 0; i < arrayAttribute.getArray().length; i++) {
-            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
-                arrayAttribute.getArray()[i][j] = random.nextInt(99);
+        switch (operator) {
+            case "+" : {
+                for (int i = 0; i < arrayAttribute.getArray()[0].length; i++) {
+                    double calc = 0.00;
+                    for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                        calc += arrayAttribute.getArray()[i][j];
+                    }
+                    tempArray[i] = calc;
+                    operand = "SUM";
+                }
             }
-        }
-    }
 
-    @Override
-    public void printArray() {
-        System.out.println("Generated random int array is: ");
-        for (int i = 0; i < arrayAttribute.getArray().length; i++){
-            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
-                System.out.print(arrayAttribute.getArray()[i][j] + " ");
+            case "-" : {
+                for (int i = 0; i < arrayAttribute.getArray()[0].length; i++) {
+                    double calc = 0.00;
+                    for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                        calc -= arrayAttribute.getArray()[i][j];
+                    }
+                    tempArray[i] = calc;
+                    operand = "DIFFERENCE";
+                }
             }
-            System.out.println();
+
+            case "*" : {
+                for (int i = 0; i < arrayAttribute.getArray()[0].length; i++) {
+                    double calc = 1.00;
+                    for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                        calc *= arrayAttribute.getArray()[i][j];
+                    }
+                    tempArray[i] = calc;
+                    operand = "MULTIPLICATION";
+                }
+            }
+
+            case "/" : {
+                for (int i = 0; i < arrayAttribute.getArray()[0].length; i++) {
+                    double calc = 1.00;
+                    for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                        calc /= arrayAttribute.getArray()[i][j];
+                    }
+                    tempArray[i] = calc;
+                    operand = "DIVISION";
+                }
+            }
+
         }
+        return tempArray;
     }
 
-    public void printRandomIntArray() {
-        initializeArray();
-        generateRandomIntArray();
-        printArray();
-    }
-
-    public void makeDiagonalCalculation() {
+    public void makeDiagonalCalculation(){
         System.out.println("Type 'right' to calculate RIGHT diagonal");
         System.out.println("Type 'left' to calculate LEFT diagonal");
-        diagonal = scanner.next();
-        System.out.println("Type + OR - OR * OR / to obtain respective calculations of the " + diagonal.toUpperCase() + " diagonal: ");
-        operator = scanner.next();
-        String operand = null;
+        diagonal = Utils.scanner.next();
+        makeCalculation();
 
-        for (int i = 0; i < arrayAttribute.getArray().length; i++) {
-            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++)
-                if ((Objects.equals(diagonal, "right") && (i + j == (arrayAttribute.getCol() - 1))) || ((Objects.equals(diagonal, "left")) && (i == j))) {
-                    if (Objects.equals(operator, "+")) {
-                        arrayAttribute.getArray()[i][j] += arrayAttribute.getArray()[i][j];
-                        operand = "sum";
-                    } else if (Objects.equals(operator, "-")) {
-                        arrayAttribute.getArray()[j][j] -= arrayAttribute.getArray()[i][j];
-                        operand = "difference";
-                    } else if (Objects.equals(operator, "*")) {
-                        arrayAttribute.getArray()[i][j] *= arrayAttribute.getArray()[i][j];
-                        operand = "multiplication";
-                    } else if (Objects.equals(operator, "/")) {
-                        arrayAttribute.getArray()[i][j] /= arrayAttribute.getArray()[i][j];
-                        operand = "division";
-                    } else throw new RuntimeException("Wrong operator format");
-                }
-        }
-        System.out.println("Modified array with " + operand + " of all " + diagonal.toUpperCase() + " elements is:");
-        printArray();
-
+        System.out.println(tempArray);
     }
+
+
+//            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++)
+//                if ((Objects.equals(diagonal, "right") && (i + j == (arrayAttribute.getCol() - 1))) || ((Objects.equals(diagonal, "left")) && (i == j))) {
+//                    if (Objects.equals(operator, "+")) {
+//                        arrayAttribute.getArray()[i][j] = arrayAttribute.getArray()[i][j] + calc;
+//                        operand = "sum";
+//                    } else if (Objects.equals(operator, "-")) {
+//                        calc = arrayAttribute.getArray()[i][j] - calc;
+//                        operand = "difference";
+//                    } else if (Objects.equals(operator, "*")) {
+//                        calc = arrayAttribute.getArray()[i][j] * calc;
+//                        operand = "multiplication";
+//                    } else if (Objects.equals(operator, "/")) {
+//                        calc =  arrayAttribute.getArray()[i][j] / calc;
+//                        operand = "division";
+//                    } else throw new RuntimeException("Wrong operator format");
+//                }
+//        }
+//        System.out.println("Modified array with " + operand + " of all " + diagonal.toUpperCase() + " elements is:");
+//        Utils.printArray();
+
 }

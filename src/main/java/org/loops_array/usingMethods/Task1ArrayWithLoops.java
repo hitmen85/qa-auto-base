@@ -2,15 +2,12 @@ package org.loops_array.usingMethods;
 
 import org.loops_array.helper.ArrayAttribute;
 import org.loops_array.helper.ArrayFromConsole;
+import org.loops_array.helper.Utils;
 
-import java.util.Random;
-import java.util.Scanner;
 
 public class Task1ArrayWithLoops implements ArrayFromConsole {
 
     //This task is refactored Task 1: Declarati un array N x M si populatil cu for, for each, while si do while
-    private static final Scanner scan = new Scanner(System.in);
-    private static final Random random = new Random();
     private final String str = "abcdefghijklmnopqrstuvwxyz1234567890";
 
     public ArrayAttribute arrayAttribute = new ArrayAttribute();
@@ -18,9 +15,9 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
     @Override
     public void initializeArray() {
         System.out.println("Enter the number of array rows: ");
-        arrayAttribute.setRow(scan.nextInt());
+        arrayAttribute.setRow(Utils.scanner.nextInt());
         System.out.println("Enter the number of array columns: ");
-        arrayAttribute.setCol(scan.nextInt());
+        arrayAttribute.setCol(Utils.scanner.nextInt());
         arrayAttribute.setCharArray(new char[arrayAttribute.getRow()][arrayAttribute.getCol()]);
     }
 
@@ -39,7 +36,7 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         System.out.println("\n--------------Array with FOR loop-------------------\n");
         for (int i = 0; i < arrayAttribute.getCharArray().length; i++) {
             for (int j = 0; j < arrayAttribute.getCharArray()[i].length; j++) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(random.nextInt((str.length())));
+                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
             }
         }
     }
@@ -50,7 +47,7 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         for (char[] array : arrayAttribute.getCharArray()) {
             int j = 0;
             for (char ch : array) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(random.nextInt((str.length())));
+                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
                 j++;
             }
             i++;
@@ -63,7 +60,7 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         while (arrayAttribute.getRow() > i) {
             int j = 0;
             while (arrayAttribute.getCol() > j) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(random.nextInt((str.length())));
+                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
                 j++;
             }
             i++;
@@ -76,7 +73,7 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         int j = 0;
         do {
             do {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(random.nextInt((str.length())));
+                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
                 i++;
             }
             while (i < arrayAttribute.getCharArray().length);

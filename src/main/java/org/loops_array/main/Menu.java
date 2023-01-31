@@ -1,31 +1,23 @@
 package org.loops_array.main;
 
+import org.loops_array.helper.MenuData;
+import org.loops_array.helper.Utils;
 import org.loops_array.usingMethods.Task1ArrayWithLoops;
+import org.loops_array.usingMethods.Task2SplitString;
+import org.loops_array.usingMethods.Task3PrintPyramid;
 
-import java.util.Scanner;
+import static org.loops_array.helper.Utils.printMenu;
 
-public class FirstTaskMenu extends org.loops_array.main.MainMenu {
-    private String[] loopToCall = {
-            "0 - Return to main Menu",
-            "1 - Display array with For Loop",
-            "2 - Display array with For-Each Loop",
-            "3 - Display array with Do-While Loop",
-            "4 - Display array with While-Do Loop",
-    };
+public class Menu {
+    Task1ArrayWithLoops firstTask = new Task1ArrayWithLoops();//Declare and instantiate an object first task of type Task1ArrayWithLoops
+    Task2SplitString task2Menu = new Task2SplitString();
+    Task3PrintPyramid pyramidTask = new Task3PrintPyramid();
 
-    public String[] getLoopToCall() {
-        return this.loopToCall;
-    }
-
-    private static final Scanner scanner = new Scanner(System.in);
-    Task1ArrayWithLoops firstTask = new Task1ArrayWithLoops() {
-    };
-
-    public void FirstTaskMenu() {
+    public void task1Menu() {
         int menuChoice;
         do {
-            printMenu(getLoopToCall());
-            menuChoice = scanner.nextInt();
+            printMenu(MenuData.firstTaskMenu);
+            menuChoice = Utils.scanner.nextInt();
             try {
                 switch (menuChoice) {
                     case 1:
@@ -51,6 +43,24 @@ public class FirstTaskMenu extends org.loops_array.main.MainMenu {
                 }
             } catch (Exception e) {
                 System.out.println("You have entered a wrong option number. Please enter an integer between 0 and 4");
+                Utils.scanner.nextInt();
+            }
+        } while (menuChoice != 0);
+    }
+
+    public void task2Menu(){
+        task2Menu.usingHashMapMethod();
+    }
+    public void task3Menu() {
+        int menuChoice;
+        do {
+            printMenu(MenuData.thirdTaskMenu);
+            menuChoice = Utils.scanner.nextInt();
+            switch (menuChoice) {
+                case 1:
+                    pyramidTask.printPyramid();
+                case 2:
+                    pyramidTask.printInversedPyramid();
             }
         } while (menuChoice != 0);
     }
