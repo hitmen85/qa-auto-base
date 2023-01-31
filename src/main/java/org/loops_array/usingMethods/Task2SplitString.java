@@ -5,7 +5,9 @@ import org.loops_array.helper.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
- //Task 2: Split string into
+
+    //----------------------------Task 2: Split following string and save into variables using Hashmap------------------
+    //----------------String customerData = "id-12,nume-Vasile,oras-Chisinau,mobil-0223187473232,parola-njad72DSSa2"----
 public class Task2SplitString {
 
     public void usingHashMapMethod(){

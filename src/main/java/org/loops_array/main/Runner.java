@@ -2,8 +2,6 @@ package org.loops_array.main;
 
 import org.loops_array.helper.MenuData;
 import org.loops_array.helper.Utils;
-import org.loops_array.usingMethods.Task2SplitString;
-import org.loops_array.usingMethods.Task3PrintPyramid;
 import org.loops_array.usingMethods.Task4_DiagonalOperations;
 
 public class Runner {

@@ -7,7 +7,7 @@ import org.loops_array.helper.Utils;
 
 public class Task1ArrayWithLoops implements ArrayFromConsole {
 
-    //This task is refactored Task 1: Declarati un array N x M si populatil cu for, for each, while si do while
+    //This task is refactored Task 1: Declare a bidimensional array N x M and populate it with random characters using loops For, ForEach, While si Do While
     private final String str = "abcdefghijklmnopqrstuvwxyz1234567890";
 
     public ArrayAttribute arrayAttribute = new ArrayAttribute();

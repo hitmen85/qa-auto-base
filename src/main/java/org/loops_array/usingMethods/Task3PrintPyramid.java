@@ -3,7 +3,8 @@ package org.loops_array.usingMethods;
 import org.loops_array.helper.ArrayAttribute;
 import org.loops_array.helper.Utils;
 
-
+//----------------------Task 3: Print pyramid inside of given by user bidimensional array N x M a given symbol. --------
+//----------------------Array dimensions should be keybord input. Then print reversed by 180 degrees pyramid.-----------
 public class Task3PrintPyramid {
     public ArrayAttribute arrayAttribute = new ArrayAttribute();
 

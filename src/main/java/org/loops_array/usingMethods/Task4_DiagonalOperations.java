@@ -1,11 +1,12 @@
 package org.loops_array.usingMethods;
 
 import org.loops_array.helper.ArrayAttribute;
-import org.loops_array.helper.ArrayFromConsole;
 import org.loops_array.helper.Calculations;
 import org.loops_array.helper.Utils;
 
-
+    //--------Task 4: Given a bidimensional array of N x M, populate it with random int numbers,
+    //---then calculate [operation] of array diagonal elements and print the newly generated array
+    //---Opeartion = SUM, DIFFERENCE, MULTIPLICATION, DIVISION------------------------------------
 public class Task4_DiagonalOperations {
     public static Calculations calculations = new Calculations();
     public static ArrayAttribute arrayAttribute = new ArrayAttribute();
