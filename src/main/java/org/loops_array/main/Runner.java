@@ -2,14 +2,12 @@ package org.loops_array.main;
 
 import org.loops_array.helper.MenuData;
 import org.loops_array.helper.Utils;
-import org.loops_array.usingMethods.Task4_DiagonalOperations;
+import org.loops_array.usingMethods.Task5RotateArray;
 
 public class Runner {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         Menu menu = new Menu();
-        Task4_DiagonalOperations forthTask = new Task4_DiagonalOperations();
-
 
         int menuChoice;
         do {
@@ -26,14 +24,15 @@ public class Runner {
                     menu.task3Menu();
                     break;
                 case 4:
-                    forthTask.result();
+                    menu.task4Menu();
                     break;
                 case 5:
-                    break;
-                case 6:
+                    menu.task5Menu();
+                case 0:
+                    System.out.println("Program Terminated.... Thank you for choosing our product!");
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + menuChoice);
+                    System.out.println("You have entered an unexpected option. Please select a task from below list to be executed: \n");
             }
         } while (menuChoice != 0);
     }

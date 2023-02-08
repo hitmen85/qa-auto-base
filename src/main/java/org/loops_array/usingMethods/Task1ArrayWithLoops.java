@@ -1,11 +1,11 @@
 package org.loops_array.usingMethods;
 
 import org.loops_array.helper.ArrayAttribute;
-import org.loops_array.helper.ArrayFromConsole;
+import org.loops_array.helper.ArrayBaseMethods;
 import org.loops_array.helper.Utils;
 
 
-public class Task1ArrayWithLoops implements ArrayFromConsole {
+public class Task1ArrayWithLoops implements ArrayBaseMethods {
 
     //This task is refactored Task 1: Declare a bidimensional array N x M and populate it with random characters using loops For, ForEach, While si Do While
     private final String str = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -18,15 +18,15 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         arrayAttribute.setRow(Utils.scanner.nextInt());
         System.out.println("Enter the number of array columns: ");
         arrayAttribute.setCol(Utils.scanner.nextInt());
-        arrayAttribute.setCharArray(new char[arrayAttribute.getRow()][arrayAttribute.getCol()]);
+        arrayAttribute.setArray(new String[arrayAttribute.getRow()][arrayAttribute.getCol()]);
     }
 
     @Override
     public void printArray() {
         System.out.println("Generated random array of chars is: ");
-        for (int i = 0; i < arrayAttribute.getCharArray().length; i++) {
-            for (int j = 0; j < arrayAttribute.getCharArray()[i].length; j++) {
-                System.out.print(arrayAttribute.getCharArray()[i][j] + " ");
+        for (int i = 0; i < arrayAttribute.getArray().length; i++) {
+            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                System.out.print(arrayAttribute.getArray()[i][j] + " ");
             }
             System.out.println();
         }
@@ -34,9 +34,9 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
 
     public void displayArrayWithForLoop() {
         System.out.println("\n--------------Array with FOR loop-------------------\n");
-        for (int i = 0; i < arrayAttribute.getCharArray().length; i++) {
-            for (int j = 0; j < arrayAttribute.getCharArray()[i].length; j++) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
+        for (int i = 0; i < arrayAttribute.getArray().length; i++) {
+            for (int j = 0; j < arrayAttribute.getArray()[i].length; j++) {
+                arrayAttribute.getArray()[i][j] = String.valueOf(Utils.random.nextInt((str.length())));
             }
         }
     }
@@ -44,10 +44,10 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
     public void displayArrayWithForEachLoop() {
         System.out.println("\n--------------Array with For Each loop-------------------\n");
         int i = 0;
-        for (char[] array : arrayAttribute.getCharArray()) {
+        for (String[] array : arrayAttribute.getArray()) {
             int j = 0;
-            for (char ch : array) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
+            for (String ch : array) {
+                arrayAttribute.getArray()[i][j] = String.valueOf(Utils.random.nextInt((str.length())));
                 j++;
             }
             i++;
@@ -60,7 +60,7 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         while (arrayAttribute.getRow() > i) {
             int j = 0;
             while (arrayAttribute.getCol() > j) {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
+                arrayAttribute.getArray()[i][j] = String.valueOf(Utils.random.nextInt((str.length())));
                 j++;
             }
             i++;
@@ -73,13 +73,13 @@ public class Task1ArrayWithLoops implements ArrayFromConsole {
         int j = 0;
         do {
             do {
-                arrayAttribute.getCharArray()[i][j] = str.charAt(Utils.random.nextInt((str.length())));
+                arrayAttribute.getArray()[i][j] = String.valueOf(Utils.random.nextInt((str.length())));
                 i++;
             }
-            while (i < arrayAttribute.getCharArray().length);
+            while (i < arrayAttribute.getArray().length);
             i = 0;
             j++;
         }
-        while (j < arrayAttribute.getCharArray()[0].length);
+        while (j < arrayAttribute.getArray()[0].length);
     }
 }

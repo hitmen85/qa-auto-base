@@ -4,8 +4,8 @@ public class ArrayAttribute {
     private int row;
     private int col;
     private char ch;
-    private int[][] array;
-    private char[][] charArray;
+    private int[][] intArray;
+    private String[][] Array;
 
     public int getRow() {
         return row;
@@ -22,18 +22,18 @@ public class ArrayAttribute {
         this.col = col;
     }
 
-    public int[][] getArray() {
-        return array;
+    public int[][] getIntArray() {
+        return intArray;
     }
-    public void setArray(int[][] array) {
-        this.array = array;
+    public void setIntArray(int[][] array) {
+        this.intArray = array;
     }
 
-    public char[][] getCharArray() {
-        return charArray;
+    public String[][] getArray() {
+        return Array;
     }
-    public void setCharArray(char[][] charArray) {
-        this.charArray = charArray;
+    public void setArray(String[][] Array) {
+        this.Array = Array;
     }
 
     public void setChar(char ch){
